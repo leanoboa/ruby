@@ -1,0 +1,13 @@
+arq = File.new("dados.txt","a")
+arq.write "linha 2: Manipulando arquivos no Ruby"
+arq.close
+ 
+p File.readlines("dados.txt")
+ 
+#lendo o arquivo como um bloco e fechando-o automaticamente.
+File.open("dados.txt") do |arquivo|
+  arquivo.each do |linha|
+    puts linha
+  end
+end
+p File.ctime("dados.txt"),File.mtime("dados.txt"), File.atime("dados.txt") if File.exists?("dados.txt")==true
